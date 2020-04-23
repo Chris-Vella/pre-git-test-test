@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<HtmlImport
+  ImportResources="true"
+  ImportResourcesLocation="RelativeToDocument"
+  KeepSourceLinks="true"
+  SourceFolders=""
+  ImportTopics="content"
+  ResourceFolder="file:///C:/Users/cvell/Desktop/Git Demo/Git Demo/Content/"
+  LastImport="2020-04-13T09:37:12.5384295-07:00"
+  ImportTopicsLocation="Content/">
+  <Files>
+    <Url
+      Source="../../../../Cheatsheet for Salesforce.htm"
+      AbsoluteSource="file:///C:/Users/cvell/Desktop/Cheatsheet for Salesforce.htm" />
+  </Files>
+  <ExcludedFiles />
+  <CollectedSourceFiles />
+  <SkippedSourceFiles />
+  <GeneratedFiles>
+    <Url
+      Source="../../Content/Cheatsheet for Salesforce.htm"
+      TimeStamp="4/13/2020 9:37:07 AM" />
+    <Url
+      Source="../TOCs/Cheatsheet for Salesforce.fltoc"
+      TimeStamp="4/13/2020 9:37:12 AM" />
+  </GeneratedFiles>
+</HtmlImport>

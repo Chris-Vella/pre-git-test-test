@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html MadCap:conditions="Internal-External.InternalOnly" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head><title></title>
+    </head>
+    <body>
+        <h1>Cheatsheet for Git</h1>
+        <h4><b>Description:</b>&#160;</h4>
+        <p>Git is a version control system, and is the most popular of its kind.</p>
+        <p>It's open source, and uses a distributed architecture. Which means every working copy of the code contains the entire history of the changes made since initializing the repo. </p>
+        <p>&#160;</p>
+        <p>This means you can revert back to a previous point in the code, signified by "commits", similar to checkpoints. </p>
+        <p>&#160;</p>
+        <h4><b>Requirements:</b>
+        </h4>
+        <p><a href="https://help.madcapsoftware.com/flare2019r2/Content/Flare/Step5-Building-Publishing-Output/Salesforce/Salesforce.htm">https://help.madcapsoftware.com/flare2019r2/Content/Flare/Source-Control/Git/Git.htm#microcontent1</a>
+        </p>
+        <p>&#160;</p>
+        <p>Git for Windows, 32bit for 32bit Flare, 64bit for 64bit Flare</p>
+        <p>this is a common issue for those who cannot find the executable, installing Git as an administrator helps in this case as well.</p>
+        <p>&#160;</p>
+        <p>&#160;</p>
+        <p style="font-weight: bold;">Installation:</p>
+        <p style="font-weight: normal;">When installing Git, you can leave all options default, just make sure the architecture aligns with the OS/Flare. </p>
+        <p style="font-weight: normal;">&#160;</p>
+        <h2>Workflow:</h2>
+        <p>Git for Windows + output/project/content + Repo = recipe for binding to Git. These instructions assume Git is installed on the local machine:</p>
+        <p>&#160;</p>
+        <p>&#160;</p>
+        <h4>Binding to Git: </h4>
+        <ol>
+            <li>Create the remote repository if necessary, this is usually done via a <b style="font-size: 28pt;">+</b> button .</li>
+            <li>From here, you will see a URL ending in .git for HTTPS security encryption, or a URL that starts with git@ for repos that use SSH keys.</li>
+            <li>Now we have created the online Repo that we will be pushing our content/projects to.</li>
+            <li>Next is creating a local repo to manage the content/changes and contain our local repository. This is typically done in the root level folder of the project. Publishing to Git is a similar but process that will be described later. <ul><li><b>If manually generating a local repo:</b></li><li>Open Git Bash on the local machine, and type in "cd C:\yourdirectory\theaddress\wherever" to navigate to the folder you wish to create the repository in. You can also right click in the folder and select the option for "Git Bash here" to do this faster.</li><li>If you are generating the repo externally using Git Bash, the command to create the repo is " git init ". This will create a Git repo in the current directory. </li><li><b>If you are initializing the repo using Flare: </b></li><li>Go to the project ribbon, select "Project properties", and select "Bind Project". The next steps are the same for both options:</li></ul></li>
+            <li>After selecting Project Properties in the Project ribbon, and selecting Bind Project you will fill out the remainder of this form with the appropriate info. This will include the Repo URL, which can be found on the repo itself. You will then include your name and email and the binding will initiallize.</li>
+            <li><b style="font-style: italic;">SSH keys only</b>:<ol><li>If you have not generated keys at this point, you can run " ssh-keygen -t rsa " to generate keys by default in the user's folder in a new .ssh folder. </li><li>Once you have successfully generated keys, you will need to associate the code in the private key with the repo's account in the settings. This is different depending on the repo, but usually it is a tab in the general settings. </li><li>After associating the keys with the repo, you can plug the keys into their respective fields when binding the project. The default names for the keys will start with "id_rsa", and the key ending in .pub is your public key. </li><li>After pointing the binding wizard at the two files, you should successfully bind to the repo.</li></ol></li>
+        </ol>
+        <p>&#160;</p>
+        <p>&#160;</p>
+        <p style="font-weight: bold;">&#160;</p>
+        <h4>Troubleshooting Git:</h4>
+        <p>Useful Git commands:</p>
+        <ul style="list-style-type: circle;">
+            <li><span class="git">git status</span> - checks for changed files in your working directory</li>
+            <li><span class="git">git add .</span> - adds all current changes to the next commit via the staging area</li>
+            <li><span class="git">git commit</span> - commit previously staged changes</li>
+            <li><span class="git">git log</span> - shows all commits, starting by newest</li>
+            <li><span class="git">git push</span> - pushes local changes to the remote repository</li>
+            <li><span class="git">git push -f</span> - forces a push when otherwise git would reject your git push because you changed your repo history in your pushing repository.But that is only half the story; Forced pushes also let you overwrite someone else's commits which have been pushed after your last pull.)</li>
+            <li><span class="git">git pull</span> - downloads changes and directly merges them with current file structure</li>
+            <li><span class="git">git merge &lt;branch&gt;</span> - merges branch into current</li>
+        </ul>
+        <p>&#160;</p>
+        <p>&#160;</p>
+        <p>&#160;</p>
+        <p>Generally the first thing that should take place is navigating to the root directory of the project, and then running a <span class="git">git status</span> to verify that there are no commits out of sync causing any push/pull issues. Verify Git has been installed, and get an idea of what the user was doing before experiencing the source control issue. What repository? What type of security? More than one author? When did it work last? What was the workflow leading up to this?</p>
+        <p>&#160;</p>
+        <h4>Common occurences:</h4>
+        <p style="font-weight: normal;"> Issues pushing/pulling with Git from Flare is the most likely scenario that will crop up. This type of problem sometimes is associated with a "Sequence contains more than one element" exception, which can be resolved by adding, committing, and pushing the out of sync changes via Git Bash and then re-opening Flare. </p>
+        <p style="font-weight: normal;">&#160;</p>
+        <p style="font-weight: normal;">If there is still a problem executing Source Control functions, check to make sure that Flare is using a Git executable for source control functions, which you can find under File &gt; Options &gt; Source Control tab. Some users experience LibGit2Sharp errors, and that is typically related to not having the Git executable installed/ correct version installed. LibGit2Sharp is what Flare uses in lieu of the Git executable if it isn't installed.</p>
+        <p style="font-weight: normal;">&#160;</p>
+        <p style="font-weight: normal;">If neither of those options resolve the issue, the next best option would be to re-import the project from source control to restore the ability to interact with the repo. However sometimes this won't be desirable as a solution; due to some users going long periods without committing and a re-import would cost weeks of work. </p>
+        <p style="font-weight: normal;">&#160;</p>
+        <p style="font-weight: normal;">Other issues:</p>
+        <p style="font-weight: normal;">&#160;</p>
+        <p style="font-weight: normal;">Sometimes users are unable to interact with repositories with stricter security settings, which will allow them to bind to the repo, but not execute source control functions within it. This can be due to security restrictions placed on the repo by an administrator, or due to incorrect binding information. Typically, a Git administrator will need to provide permissions for the user to interact with the repo to resolve the problem. </p>
+        <p style="font-weight: normal;">&#160;</p>
+        <p style="font-weight: normal;">Other times, users can establish multiple repositories in the same working directory, which would require you to import the project into a new working directroy and delete the extraneous files, commit/push and work from this new location.</p>
+        <p style="font-weight: normal;">&#160;</p>
+        <p style="font-weight: normal;">&#160;</p>
+        <p style="font-weight: normal;">SOURCE CONTROL RIBBON - button information can be found in the online help</p>
+        <p style="font-weight: normal;">libgit2sharp = git functions without git installed</p>
+        <p style="font-weight: normal;">sync = pull + push</p>
+        <p style="font-weight: normal;">add is not part of sync</p>
+        <p style="font-weight: normal;">&#160;</p>
+        <p style="font-weight: bold;">&#160;</p>
+        <p><b>Active Bugs</b>:</p>
+        <p>159405 - In a dual bound project, the "Topic has been sent for review" banner does not go away at first if another Author closes the review</p>
+        <p>&#160;</p>
+        <p>157411 - Projects: Cannot add files to git after a canceled upload</p>
+        <p>&#160;</p>
+        <p>&#160;</p>
+        <p>Any questions? Additions? Thanks!</p>
+        <p>&#160;</p>
+    </body>
+</html>
